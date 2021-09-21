@@ -1,0 +1,62 @@
+{% extends 'wica_store/main.html' %}
+{% load static %}
+{% block content %}
+<section class="hero-section text-center">
+    <div class="container container--narrow">
+      <div class="hero-section__box">
+        <h2>Search for <span>Books</span></h2>
+      </div>
+
+      <div class="hero-section__search">
+        <form class="form" action="#" method="get">
+          <div class="form__field">
+            <label for="formInput#search">Search By Books </label>
+            <input class="input input--text" id="formInput#search" type="text" name="text"
+              placeholder="Search by Book Title or Author" />
+          </div>
+
+          <input class="btn btn--sub btn--lg" type="submit" value="Search" />
+        </form>
+      </div>
+    </div>
+</section>
+
+  <!-- wica store items  -->
+  <section class="projectsList">
+    <div class="container">
+      <div class="grid grid--three">
+
+        {% for product in products %}
+        {% if product.section == 'book' %}
+        <div class="column">
+          <div class="card project">
+            <a href="single-project.html" class="project">
+              <img class="project__thumbnail" src="{{ product.imageURL }}" alt="project thumbnail" />
+              <div class="card__body">
+                <h3 class="project__title">{{ product.name|title }}</h3>
+                <p><a class="project__author" href="profile.html">By {{ product.author_or_brand|title }}</a></p>
+                <p class="project--rating">
+                  <span style="font-weight: bold;">98%</span> Postitive
+                  Feedback (72 Votes)
+                </p>
+                <div class="project__tags">
+                  <span class="tag tag--pill tag--main">
+                    <a href="#" class="">${{ product.price|floatformat:2 }}</a>
+                  </span>
+                  <span class="tag tag--pill tag--main">
+                    <a href="#" class="">Add to Cart</a>
+                  </span>
+                  
+                </div>
+              </div>
+            </a>
+          </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+
+
+      </div>
+    </div>
+  </section> 
+{% endblock content %}
