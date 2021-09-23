@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  {% block head %} {% endblock head %}
   <!-- Favicon -->
   <link rel="shortcut icon" href=" {% static 'images/favicon.ico' %}" type="image/x-icon" />
   <!-- Icon - IconMonster -->
@@ -15,6 +16,7 @@
   <link rel="stylesheet" href="{% static 'uikit/styles/uikit.css' %}" />
   <!-- Dev Search UI -->
   <link rel="stylesheet" href="{% static 'css/app.css' %}" />
+  
 
   <title>WicaStore - Your Fav Fashion and Book Plug</title>
 </head>
@@ -24,7 +26,7 @@
     <header class="header">
       <div class="container container--narrow">
         <a href="{% url 'store' %}" class="header__logo">
-          <!-- <img src="{% static 'images/logo.svg' %}" alt="DevSearch Logo" /> -->
+          <!-- <img src="{% static 'images/wica_logo.png' %}" alt="Wica Logo" /> -->
           <h2> WICA </h2>
         </a>
         <nav class="header__nav">
@@ -58,4 +60,5 @@
 {% block content %} {% endblock content %}
 </main>
 
+{% block script %} {% endblock script %}
 </body>
